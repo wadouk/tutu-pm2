@@ -1,0 +1,23 @@
+{
+  "name": "b2c-runner-pm2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all b2c gql proxy",
+    "b2c": "cd node_modules/@clubmed/b2c && npm start",
+    "proxy": "cd node_modules/@clubmed/proxy && npm start -- port=$PORT b2c.cacheEnabled=false cms.cacheEnabled=true api.cacheEnabled=true",
+    "gql": "cd node_modules/@clubmed/gql && npm start",
+    "setenv-local": "node --harmony env-local.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@clubmed/b2c": "^4.102.0",
+    "@clubmed/graphql": "^0.42.0",
+    "@clubmed/proxy": "^0.13.1",
+    "flat": "^2.0.0",
+    "npm-run-all": "^2.1.2"
+  }
+}
